@@ -16,7 +16,10 @@ public class MainActivity extends AppCompatActivity {
     Button b2;
     Button b3;
     TextView tv;
+    TextView tv1;
     int n;
+    int score=0;
+    int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
         b2=(Button)findViewById(R.id.button2);
         b3=(Button)findViewById(R.id.button3);
         tv=(TextView)findViewById(R.id.textView);
+        tv1=(TextView)findViewById(R.id.textView4);
         Random rand = new Random();
 
         n = rand.nextInt(1000) + 1;
         tv.setText(Integer.toString(n));
-
+        b3.setEnabled(false);
 
     }
 
@@ -66,14 +70,22 @@ public class MainActivity extends AppCompatActivity {
     {
        if(prime(Integer.parseInt(tv.getText().toString()))==true)
        {
-          Toast x= Toast.makeText(getApplicationContext(),"You are right!",Toast.LENGTH_LONG);
+          Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_LONG);
            x.show();
+           flag=1;
+           b3.setEnabled(true);
+           b1.setEnabled(false);
+           b2.setEnabled(false);
 
        }
         else {
 
-           Toast x= Toast.makeText(getApplicationContext(),"You are wrong!",Toast.LENGTH_LONG);
+           Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_LONG);
            x.show();
+           b3.setEnabled(true);
+           b1.setEnabled(false);
+           b2.setEnabled(false);
+           flag=0;
 
        }
     }
@@ -82,14 +94,22 @@ public class MainActivity extends AppCompatActivity {
     {
         if(prime(Integer.parseInt(tv.getText().toString()))==false)
         {
-            Toast x= Toast.makeText(getApplicationContext(),"You are right!",Toast.LENGTH_SHORT);
+            Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
             x.show();
+            b3.setEnabled(true);
+            b1.setEnabled(false);
+            b2.setEnabled(false);
+            flag=1;
+
         }
         else {
 
-            Toast x= Toast.makeText(getApplicationContext(),"You are wrong!",Toast.LENGTH_SHORT);
+            Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
             x.show();
-
+            b3.setEnabled(true);
+            b1.setEnabled(false);
+            b2.setEnabled(false);
+            flag=0;
         }
 
 
@@ -97,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void next(View v)
     {
+        if(flag==1)
+        {
+            score=score+1;
+            tv1.setText(Integer.toString(score));
+        }
+        else{
+            score=score-1;
+            tv1.setText(Integer.toString(score));
+        }
+        b1.setEnabled(true);
+        b2.setEnabled(true);
         Random rand = new Random();
         n = rand.nextInt(1000) + 1;
         tv.setText(Integer.toString(n));
