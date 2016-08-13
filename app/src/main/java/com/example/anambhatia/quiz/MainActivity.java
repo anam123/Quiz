@@ -2,6 +2,7 @@ package com.example.anambhatia.quiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
     {
        if(prime(Integer.parseInt(tv.getText().toString()))==true)
        {
-          Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_LONG);
+          Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
+           x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
            flag=1;
            b3.setEnabled(true);
@@ -80,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
        }
         else {
 
-           Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_LONG);
+           Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
+           x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
            b3.setEnabled(true);
            b1.setEnabled(false);
@@ -95,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
         if(prime(Integer.parseInt(tv.getText().toString()))==false)
         {
             Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
+            x.setGravity(Gravity.CENTER, 0, 0);
+
             x.show();
+
             b3.setEnabled(true);
             b1.setEnabled(false);
             b2.setEnabled(false);
@@ -105,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         else {
 
             Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
+            x.setGravity(Gravity.CENTER, 0, 0);
             x.show();
             b3.setEnabled(true);
             b1.setEnabled(false);
