@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button b1;
     Button b2;
+    Button b3;
     TextView tv;
     int n;
 
@@ -23,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         b1= (Button)findViewById(R.id.button);
         b2=(Button)findViewById(R.id.button2);
+        b3=(Button)findViewById(R.id.button3);
         tv=(TextView)findViewById(R.id.textView);
         Random rand = new Random();
 
-        n = rand.nextInt(500) + 1;
+        n = rand.nextInt(1000) + 1;
         tv.setText(Integer.toString(n));
 
 
@@ -66,11 +68,6 @@ public class MainActivity extends AppCompatActivity {
        {
           Toast x= Toast.makeText(getApplicationContext(),"You are right!",Toast.LENGTH_LONG);
            x.show();
-           Random rand = new Random();
-           n = rand.nextInt(500) + 1;
-           tv.setText(Integer.toString(n));
-
-
 
        }
         else {
@@ -87,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
         {
             Toast x= Toast.makeText(getApplicationContext(),"You are right!",Toast.LENGTH_SHORT);
             x.show();
-            Random rand = new Random();
-            n = rand.nextInt(500) + 1;
-            tv.setText(Integer.toString(n));
         }
         else {
 
@@ -99,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void next(View v)
+    {
+        Random rand = new Random();
+        n = rand.nextInt(1000) + 1;
+        tv.setText(Integer.toString(n));
     }
 
 }
