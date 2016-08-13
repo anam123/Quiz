@@ -13,11 +13,11 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button b1;
-    Button b2;
-    Button b3;
-    TextView tv;
-    TextView tv1;
+    Button correct;
+    Button incorrect;
+    Button nxt;
+    TextView random;
+    TextView marks;
     int n;
     int score=0;
     int flag=0;
@@ -26,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        b1= (Button)findViewById(R.id.button);
-        b2=(Button)findViewById(R.id.button2);
-        b3=(Button)findViewById(R.id.button3);
-        tv=(TextView)findViewById(R.id.textView);
-        tv1=(TextView)findViewById(R.id.textView4);
+        correct= (Button)findViewById(R.id.button);
+        incorrect=(Button)findViewById(R.id.button2);
+        nxt=(Button)findViewById(R.id.button3);
+        random=(TextView)findViewById(R.id.textView);
+        marks=(TextView)findViewById(R.id.textView4);
         Random rand = new Random();
 
         n = rand.nextInt(1000) + 1;
-        tv.setText(Integer.toString(n));
-        b3.setEnabled(false);
+        random.setText(Integer.toString(n));
+        nxt.setEnabled(false);
 
     }
 
@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void tru(View v)
     {
-       if(prime(Integer.parseInt(tv.getText().toString()))==true)
+       if(prime(Integer.parseInt(random.getText().toString()))==true)
        {
           Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
            x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
            flag=1;
-           b3.setEnabled(true);
-           b1.setEnabled(false);
-           b2.setEnabled(false);
+           nxt.setEnabled(true);
+           correct.setEnabled(false);
+           incorrect.setEnabled(false);
 
        }
         else {
@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
            Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
            x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
-           b3.setEnabled(true);
-           b1.setEnabled(false);
-           b2.setEnabled(false);
+           nxt.setEnabled(true);
+           correct.setEnabled(false);
+           incorrect.setEnabled(false);
            flag=0;
 
        }
@@ -95,16 +95,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void fals(View v)
     {
-        if(prime(Integer.parseInt(tv.getText().toString()))==false)
+        if(prime(Integer.parseInt(random.getText().toString()))==false)
         {
             Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
             x.setGravity(Gravity.CENTER, 0, 0);
 
             x.show();
 
-            b3.setEnabled(true);
-            b1.setEnabled(false);
-            b2.setEnabled(false);
+            nxt.setEnabled(true);
+            correct.setEnabled(false);
+            incorrect.setEnabled(false);
             flag=1;
 
         }
@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
             Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
             x.setGravity(Gravity.CENTER, 0, 0);
             x.show();
-            b3.setEnabled(true);
-            b1.setEnabled(false);
-            b2.setEnabled(false);
+            nxt.setEnabled(true);
+            correct.setEnabled(false);
+            incorrect.setEnabled(false);
             flag=0;
         }
 
@@ -127,17 +127,17 @@ public class MainActivity extends AppCompatActivity {
         if(flag==1)
         {
             score=score+1;
-            tv1.setText(Integer.toString(score));
+            marks.setText(Integer.toString(score));
         }
         else{
             score=score-1;
-            tv1.setText(Integer.toString(score));
+            marks.setText(Integer.toString(score));
         }
-        b1.setEnabled(true);
-        b2.setEnabled(true);
+        correct.setEnabled(true);
+        incorrect.setEnabled(true);
         Random rand = new Random();
         n = rand.nextInt(1000) + 1;
-        tv.setText(Integer.toString(n));
+        random.setText(Integer.toString(n));
     }
 
 }
