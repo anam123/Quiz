@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
           Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
            x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
+           score=score+1;
+           marks.setText(Integer.toString(score));
            flag=1;
            nxt.setEnabled(true);
            correct.setEnabled(false);
@@ -85,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
            Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
            x.setGravity(Gravity.CENTER, 0, 0);
            x.show();
+           score=score-1;
+           marks.setText(Integer.toString(score));
            nxt.setEnabled(true);
            correct.setEnabled(false);
            incorrect.setEnabled(false);
@@ -101,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
             x.setGravity(Gravity.CENTER, 0, 0);
 
             x.show();
-
+            score=score+1;
+            marks.setText(Integer.toString(score));
             nxt.setEnabled(true);
             correct.setEnabled(false);
             incorrect.setEnabled(false);
@@ -113,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
             Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
             x.setGravity(Gravity.CENTER, 0, 0);
             x.show();
+            score=score-1;
+            marks.setText(Integer.toString(score));
             nxt.setEnabled(true);
             correct.setEnabled(false);
             incorrect.setEnabled(false);
@@ -124,15 +131,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void next(View v)
     {
-        if(flag==1)
-        {
-            score=score+1;
-            marks.setText(Integer.toString(score));
-        }
-        else{
-            score=score-1;
-            marks.setText(Integer.toString(score));
-        }
         correct.setEnabled(true);
         incorrect.setEnabled(true);
         Random rand = new Random();
