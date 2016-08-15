@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         n = rand.nextInt(1000) + 1;
         random.setText(Integer.toString(n));
-        nxt.setEnabled(false);
+        nxt.setClickable(false);
 
     }
 
@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
            score=score+1;
            marks.setText(Integer.toString(score));
            flag=1;
-           nxt.setEnabled(true);
-           correct.setEnabled(false);
-           incorrect.setEnabled(false);
+           nxt.setClickable(true);
+           correct.setClickable(false);
+           incorrect.setClickable(false);
 
        }
         else {
@@ -89,9 +89,11 @@ public class MainActivity extends AppCompatActivity {
            x.show();
            score=score-1;
            marks.setText(Integer.toString(score));
-           nxt.setEnabled(true);
-           correct.setEnabled(false);
-           incorrect.setEnabled(false);
+           nxt.setClickable(true);
+           correct.setAlpha(.5f);
+           incorrect.setAlpha(.5f);
+           correct.setClickable(false);
+           incorrect.setClickable(false);
            flag=0;
 
        }
@@ -107,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
             x.show();
             score=score+1;
             marks.setText(Integer.toString(score));
-            nxt.setEnabled(true);
-            correct.setEnabled(false);
-            incorrect.setEnabled(false);
+            nxt.setClickable(true);
+            correct.setAlpha(.5f);
+            incorrect.setAlpha(.5f);
+            correct.setClickable(false);
+            incorrect.setClickable(false);
             flag=1;
 
         }
@@ -120,9 +124,11 @@ public class MainActivity extends AppCompatActivity {
             x.show();
             score=score-1;
             marks.setText(Integer.toString(score));
-            nxt.setEnabled(true);
-            correct.setEnabled(false);
-            incorrect.setEnabled(false);
+            nxt.setClickable(true);
+            correct.setAlpha(.5f);
+            incorrect.setAlpha(.5f);
+            correct.setClickable(false);
+            incorrect.setClickable(false);
             flag=0;
         }
 
@@ -131,8 +137,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void next(View v)
     {
-        correct.setEnabled(true);
-        incorrect.setEnabled(true);
+        correct.setClickable(true);
+        incorrect.setClickable(true);
+        correct.setAlpha(1f);
+        incorrect.setAlpha(1f);
         Random rand = new Random();
         n = rand.nextInt(1000) + 1;
         random.setText(Integer.toString(n));
