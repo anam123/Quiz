@@ -1,7 +1,7 @@
 <resources>
 
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.Dialog.MinWidth">
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
+    <style name="AppTheme" parent="Base.Theme.AppCompat">
+        <item name="colorPrimary">#2196f3</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
