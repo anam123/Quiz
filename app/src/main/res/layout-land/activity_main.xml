@@ -16,12 +16,11 @@
         android:text="PRIME OR NOT?"
         android:id="@+id/textView2"
         android:textSize="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
         android:textAlignment="center"
         android:singleLine="false"
-        android:phoneNumber="false" />
+        android:phoneNumber="false"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
     <Button
 
@@ -32,9 +31,8 @@
         android:layout_marginRight="73dp"
         android:onClick="tru"
         android:theme="@style/AppTheme.Button"
-        android:layout_alignTop="@+id/button2"
-        android:layout_toStartOf="@+id/button2"
-        android:layout_marginEnd="39dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
 
@@ -45,9 +43,8 @@
         android:layout_marginRight="81dp"
         android:onClick="fals"
         android:theme="@style/AppTheme.Button"
-        android:layout_marginBottom="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/textView2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,9 +53,8 @@
         android:id="@+id/button3"
         android:onClick="next"
         android:theme="@style/AppTheme.Button"
-        android:layout_marginStart="56dp"
         android:layout_alignTop="@+id/button2"
-        android:layout_toEndOf="@+id/textView4" />
+        android:layout_alignEnd="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_alignTop="@+id/textView3" />
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
 
 </RelativeLayout>
