@@ -34,7 +34,7 @@
         android:theme="@style/AppTheme.Button"
         android:layout_alignTop="@+id/button2"
         android:layout_toStartOf="@+id/button2"
-        android:layout_marginEnd="31dp" />
+        android:layout_marginEnd="39dp" />
 
     <Button
 
@@ -56,9 +56,9 @@
         android:id="@+id/button3"
         android:onClick="next"
         android:theme="@style/AppTheme.Button"
+        android:layout_marginStart="56dp"
         android:layout_alignTop="@+id/button2"
-        android:layout_toEndOf="@+id/textView4"
-        android:layout_marginStart="47dp" />
+        android:layout_toEndOf="@+id/textView4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,7 +79,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
         android:id="@+id/textView4"
         android:layout_toEndOf="@+id/textView3"
         android:layout_alignTop="@+id/textView3" />

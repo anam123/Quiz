@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int n;
     int score=0;
     int flag=0;
+    int clicked=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +34,48 @@ public class MainActivity extends AppCompatActivity {
         nxt=(Button)findViewById(R.id.button3);
         random=(TextView)findViewById(R.id.textView);
         marks=(TextView)findViewById(R.id.textView4);
-        Random rand = new Random();
 
-        n = rand.nextInt(1000) + 1;
+        if (savedInstanceState == null) {
+            Random rand = new Random();
+            n = rand.nextInt(1000) + 1;
+            random.setText(Integer.toString(n));
+            nxt.setClickable(false);
+        }
+
+
+    }
+
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putInt("score", score);
+
+        savedInstanceState.putInt("n", n);
+        savedInstanceState.putInt("clicked", clicked);
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+
+        score = savedInstanceState.getInt("score");
+         n = savedInstanceState.getInt("n");
+        clicked = savedInstanceState.getInt("clicked");
         random.setText(Integer.toString(n));
-        nxt.setClickable(false);
+        marks.setText(Integer.toString(score));
+        if(clicked==1) {
+            correct.setClickable(false);
+            incorrect.setClickable(false);
+            correct.setAlpha(.5f);
+            incorrect.setAlpha(.5f);
+        }
+
+
 
     }
 
@@ -47,9 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Checks the orientation of the screen for landscape and portrait and set portrait mode always
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
             setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+
             setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         }
     }
 
@@ -83,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tru(View v)
     {
+        clicked=1;
        if(prime(Integer.parseInt(random.getText().toString()))==true)
        {
           Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
@@ -99,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
        }
         else {
+
 
            Toast x= Toast.makeText(getApplicationContext(),"You are wrong, -1",Toast.LENGTH_SHORT);
            x.setGravity(Gravity.CENTER, 0, 0);
@@ -117,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void fals(View v)
     {
+        clicked=1;
         if(prime(Integer.parseInt(random.getText().toString()))==false)
         {
             Toast x= Toast.makeText(getApplicationContext(),"You are right, +1",Toast.LENGTH_SHORT);
@@ -131,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             correct.setClickable(false);
             incorrect.setClickable(false);
             flag=1;
+
 
         }
         else {
@@ -155,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
     {
         correct.setClickable(true);
         incorrect.setClickable(true);
+        clicked=0;
         correct.setAlpha(1f);
         incorrect.setAlpha(1f);
         Random rand = new Random();
