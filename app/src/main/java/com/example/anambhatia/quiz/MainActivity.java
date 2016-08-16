@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
            score=score+1;
            marks.setText(Integer.toString(score));
            flag=1;
+           correct.setAlpha(.5f);
+           incorrect.setAlpha(.5f);
            nxt.setClickable(true);
            correct.setClickable(false);
            incorrect.setClickable(false);
