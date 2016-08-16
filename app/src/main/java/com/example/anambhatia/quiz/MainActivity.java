@@ -1,5 +1,7 @@
 package com.example.anambhatia.quiz;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -37,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         random.setText(Integer.toString(n));
         nxt.setClickable(false);
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen for landscape and portrait and set portrait mode always
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     public boolean prime(int n)
