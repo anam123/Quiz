@@ -82,4 +82,24 @@
         android:layout_toEndOf="@+id/textView3"
         android:layout_alignTop="@+id/textView3" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW HINT"
+        android:id="@+id/button4"
+        android:theme="@style/AppTheme.Button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="hint"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW CHEAT"
+        android:id="@+id/button5"
+        android:theme="@style/AppTheme.Button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="cheat"/>
+
 </RelativeLayout>
